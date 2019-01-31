@@ -10,13 +10,16 @@ function beyond(num){
   if (num === Infinity){
       console.log('And beyond');
   }
-  if (num finite && positive){
+  if (isFinite(num) && num > 0){
       console.log('To infinity');
   }
-  if (num finite && negative){
+  if (isFinite(num) && num < 0){
       console.log('To negative infinity')
   }
   if (num === 0){
       console.log('Staying home')
   }
 }
+
+beyond(40);
+
