@@ -1,11 +1,24 @@
 function getYearOfBirth(age){
-    const yearOfBirth = (2019 - age);
-    return `I was born in ${yearOfBirth}`;
+  return 2018 - age;
 }
 
 function createGreeting(name, age){ 
-  return `Hi, my name is Samantha. I'm ${age} years old. I was born in ${yearOfBirth}`;
+  if (name = undefined || age === undefined) {
+      throw new Error('Arguements not valid.');
+  }
+  
+  if (age < 0) {
+      throw new Error('Age cannot be negative.');
+  }
+
+  const yob = getYearOfBirth(age);
+  return `Hi, my name is ${name} and I'm ${age} years old.
+   I was born in ${yob}.`;
 }
 
-const greeting1 = createGreeting();
-console.log(greeting1);
+try {
+  const greeting1 = createGreeting(); 
+  console.log(greeting1);
+} catch(e) {
+    console.error(e.message);
+}
