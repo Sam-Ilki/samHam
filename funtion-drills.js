@@ -3,12 +3,12 @@ function getYearOfBirth(age){
 }
 
 function createGreeting(name, age){ 
-  if (name = undefined || age === undefined) {
+  if (name === undefined || age === undefined) {
       throw new Error('Arguements not valid.');
   }
   
-  if (age < 0) {
-      throw new Error('Age cannot be negative.');
+  if (age < 0 || typeof age !== 'number') {
+      throw new Error('Age cannot be negative and must be a number.');
   }
 
   const yob = getYearOfBirth(age);
@@ -17,7 +17,7 @@ function createGreeting(name, age){
 }
 
 try {
-  const greeting1 = createGreeting(); 
+  const greeting1 = createGreeting('Samantha', 25); 
   console.log(greeting1);
 } catch(e) {
     console.error(e.message);
